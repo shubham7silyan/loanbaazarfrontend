@@ -19,7 +19,7 @@ const AdminPanel = () => {
       setIsLoggedIn(true);
       fetchContacts();
     }
-  }, [fetchContacts]);
+  }, [fetchContacts, sortBy, filterBy]);
 
   // Format date and time
   const formatDateTime = (dateString) => {
@@ -121,26 +121,19 @@ const AdminPanel = () => {
   // Mark as read
   const markAsRead = async (id) => {
     try {
-      console.log('Attempting to mark as read:', id);
       const token = localStorage.getItem('adminToken');
       const response = await fetch(`${API_BASE_URL}/api/admin/contacts/${id}/read`, {
         method: 'PUT',
         headers: { 'Authorization': `Bearer ${token}` },
       });
-
-      console.log('Mark as read response status:', response.status);
       
       if (response.ok) {
-        const data = await response.json();
-        console.log('Mark as read successful:', data);
         fetchContacts(); // Refresh the list
       } else {
         const errorData = await response.json();
-        console.error('Mark as read failed:', errorData);
         setError('Failed to mark as read: ' + (errorData.error || 'Unknown error'));
       }
     } catch (err) {
-      console.error('Mark as read error:', err);
       setError('Failed to mark as read');
     }
   };
@@ -148,26 +141,19 @@ const AdminPanel = () => {
   // Mark as unread
   const markAsUnread = async (id) => {
     try {
-      console.log('Attempting to mark as unread:', id);
       const token = localStorage.getItem('adminToken');
       const response = await fetch(`${API_BASE_URL}/api/admin/contacts/${id}/unread`, {
         method: 'PUT',
         headers: { 'Authorization': `Bearer ${token}` },
       });
-
-      console.log('Mark as unread response status:', response.status);
       
       if (response.ok) {
-        const data = await response.json();
-        console.log('Mark as unread successful:', data);
         fetchContacts(); // Refresh the list
       } else {
         const errorData = await response.json();
-        console.error('Mark as unread failed:', errorData);
         setError('Failed to mark as unread: ' + (errorData.error || 'Unknown error'));
       }
     } catch (err) {
-      console.error('Mark as unread error:', err);
       setError('Failed to mark as unread');
     }
   };

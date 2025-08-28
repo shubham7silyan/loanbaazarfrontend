@@ -22,20 +22,20 @@ const Footer = () => {
           <div className="footer-section">
             <h4>Loan Products</h4>
             <ul>
-              <li><a href="javascript:void(0)">Personal Loan</a></li>
-              <li><a href="javascript:void(0)">Home Loan</a></li>
-              <li><a href="javascript:void(0)">Business Loan</a></li>
-              <li><a href="javascript:void(0)">Professional Loan</a></li>
+              <li><button type="button" className="footer-link-btn">Personal Loan</button></li>
+              <li><button type="button" className="footer-link-btn">Home Loan</button></li>
+              <li><button type="button" className="footer-link-btn">Business Loan</button></li>
+              <li><button type="button" className="footer-link-btn">Professional Loan</button></li>
             </ul>
           </div>
           
           <div className="footer-section">
             <h4>Quick Links</h4>
             <ul>
-              <li><a href="javascript:void(0)">EMI Calculator</a></li>
-              <li><a href="javascript:void(0)">Eligibility Checker</a></li>
-              <li><a href="javascript:void(0)">FAQs</a></li>
-              <li><a href="javascript:void(0)">Contact Us</a></li>
+              <li><button type="button" className="footer-link-btn">EMI Calculator</button></li>
+              <li><button type="button" className="footer-link-btn">Eligibility Checker</button></li>
+              <li><button type="button" className="footer-link-btn">FAQs</button></li>
+              <li><button type="button" className="footer-link-btn">Contact Us</button></li>
             </ul>
           </div>
           

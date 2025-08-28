@@ -14,6 +14,13 @@ function Navb() {
         setIsMenuOpen(false);
     };
 
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            toggleMenu();
+        }
+    };
+
     return (
         <header className="navbar" data-aos="fade-down">
             <div className="navbar-logo">
@@ -47,7 +54,14 @@ function Navb() {
                         <RouterLink to="/admin" onClick={closeMenu} aria-label="Admin panel">Admin</RouterLink>
                     </li>
                 </ul>
-                <div className="hamburger" onClick={toggleMenu} aria-label="Toggle menu" role="button" tabIndex="0">
+                <div 
+                    className="hamburger" 
+                    onClick={toggleMenu} 
+                    onKeyDown={handleKeyDown}
+                    aria-label="Toggle menu" 
+                    role="button" 
+                    tabIndex="0"
+                >
                     <span></span>
                     <span></span>
                     <span></span>

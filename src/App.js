@@ -22,15 +22,15 @@ import CookiesPolicy from "./component/CookiesPolicy";
 const MainApp = () => {
   return (
     <>
-      <HomePage></HomePage>
-      <Services></Services>
-      <LoanCalculator></LoanCalculator>
-      <EligibilityChecker></EligibilityChecker>
-      <About></About>
-      <Testimonials></Testimonials>
-      <ContactUs></ContactUs>
-      <FAQs></FAQs>
-      <Footer></Footer>
+      <HomePage />
+      <Services />
+      <LoanCalculator />
+      <EligibilityChecker />
+      <About />
+      <Testimonials />
+      <ContactUs />
+      <FAQs />
+      <Footer />
     </>
   );
 };
@@ -39,9 +39,9 @@ const MainApp = () => {
 const LegalPageLayout = ({ children }) => {
   return (
     <>
-      <Navb></Navb>
+      <Navb />
       {children}
-      <Footer></Footer>
+      <Footer />
     </>
   );
 };
@@ -60,8 +60,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={
           <>
-            <Navb></Navb>
-            <MainApp></MainApp>
+            <Navb />
+            <MainApp />
           </>
         } />
         <Route path="/admin" element={<AdminPanel />} />

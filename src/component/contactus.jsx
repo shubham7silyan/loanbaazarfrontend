@@ -66,7 +66,6 @@ Thank you for choosing LoanBazar!`);
             }
             
         } catch (error) {
-            console.error("Error submitting form:", error);
             alert(`⚠️ There was an error submitting your inquiry. 
             
 Please try again or contact us directly:
