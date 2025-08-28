@@ -1,5 +1,6 @@
 // Footer.js
 import React from "react";
+import { Link } from "react-router-dom";
 import '../index.css'
 
 const Footer = () => {
@@ -39,13 +40,13 @@ const Footer = () => {
           </div>
           
           <div className="footer-section">
-            <h4>Contact Info</h4>
-            <div className="contact-info">
-              <p> +91 1800-123-4567</p>
-              <p> support@loanbazar.com</p>
-              <p> Mumbai, Maharashtra</p>
-              <p> Mon-Sat: 9 AM - 8 PM</p>
-            </div>
+            <h4>Legal</h4>
+            <ul>
+              <li><Link to="/terms-conditions">Terms & Conditions</Link></li>
+              <li><Link to="/privacy-policy">Privacy Policy</Link></li>
+              <li><Link to="/disclaimer">Disclaimer</Link></li>
+              <li><Link to="/cookies-policy">Cookies Policy</Link></li>
+            </ul>
           </div>
         </div>
         
@@ -53,9 +54,10 @@ const Footer = () => {
           <div className="footer-legal">
             <p>&copy; 2024 LoanBazar. All rights reserved.</p>
             <div className="footer-links">
-              <a href="#privacy">Privacy Policy</a>
-              <a href="#terms">Terms of Service</a>
-              <a href="#disclaimer">Disclaimer</a>
+              <Link to="/privacy-policy">Privacy Policy</Link>
+              <Link to="/terms-conditions">Terms & Conditions</Link>
+              <Link to="/disclaimer">Disclaimer</Link>
+              <Link to="/cookies-policy">Cookies Policy</Link>
             </div>
           </div>
           <div className="footer-certifications">

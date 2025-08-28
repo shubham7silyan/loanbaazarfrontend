@@ -5,36 +5,44 @@ import '../index.css'
 const FAQs = () => {
   const faqs = [
     { 
-      question: "What documents are required for loan application?", 
-      answer: "For salaried individuals: PAN card, Aadhaar card, salary slips (last 3 months), bank statements (last 6 months). For self-employed: PAN card, Aadhaar card, ITR (last 2 years), bank statements (last 12 months), business proof." 
+      question: "How to apply for instant personal loan online in India?", 
+      answer: "Apply for instant personal loan online through LoanBazar by comparing rates from 40+ banks and NBFCs. Required documents: Income proof (salary slips), Address proof, Identity proof (PAN card, Aadhaar card). For self-employed: ITR, business proof, bank statements. Processing fees are usually 1%-2% of loan amount." 
     },
     { 
-      question: "How quickly can I get loan approval?", 
-      answer: "With our AI-powered assessment system, you can get instant pre-approval within minutes. Final approval and disbursal typically takes 24-48 hours after document verification." 
+      question: "What is the fastest loan approval time for personal loans?", 
+      answer: "Get instant loan approval within 24-48 hours through our digital platform. After document verification, leading banks like HDFC, ICICI, and Axis Bank disburse personal loans within 2-3 working days. Some NBFCs offer same-day loan disbursal for pre-approved customers." 
     },
     { 
-      question: "What are the minimum eligibility criteria?", 
-      answer: "Age: 21-65 years, Minimum income: ₹25,000/month for salaried, ₹3 lakhs/year for self-employed, Credit score: 650+ preferred, Employment: Minimum 2 years experience." 
+      question: "Personal loan eligibility criteria - Am I eligible for instant loan?", 
+      answer: "Personal loan eligibility: Minimum age 21 years, regular income (salaried/self-employed), minimum salary ₹25,000 per month, CIBIL score above 650. Eligibility depends on your employer, credit history, income level, and residential location. Loan amount ranges from ₹50,000 to ₹40 lakhs." 
     },
     { 
-      question: "Can I prepay my loan without penalties?", 
-      answer: "Yes! We offer flexible prepayment options. Personal loans have zero prepayment charges after 12 months. Home loans have minimal charges as per RBI guidelines." 
+      question: "Best personal loan interest rates in India 2024", 
+      answer: "Compare best personal loan interest rates starting from 10.49% p.a. from top banks. HDFC Bank offers rates from 10.75%, SBI from 10.50%, ICICI from 10.99%. Your interest rate depends on CIBIL score, income, loan amount, tenure, and existing relationship with lender." 
     },
     { 
-      question: "What interest rates do you offer?", 
-      answer: "Our rates are highly competitive: Personal loans from 10.99% p.a., Home loans from 8.75% p.a., Business loans from 12.50% p.a. Rates depend on your credit profile and loan amount." 
+      question: "Personal loan prepayment charges and foreclosure rules", 
+      answer: "Yes, you can prepay personal loans. Prepayment charges range from 2-5% of outstanding amount. Many banks allow free prepayment after 12 EMI payments. Check foreclosure terms before applying. Some lenders offer zero prepayment charges for floating rate loans." 
     },
     { 
-      question: "Is my personal information secure?", 
-      answer: "Absolutely! We use 256-bit SSL encryption and follow RBI data protection guidelines. Your information is never shared with third parties without consent." 
+      question: "Fixed vs floating interest rates - which is better for personal loans?", 
+      answer: "Fixed rate loans: EMI remains constant throughout tenure, better for budget planning. Floating rate loans: EMI changes with market rates, generally lower than fixed rates. Under MCLR rules, floating rates reset annually. Choose based on market outlook and risk appetite." 
     },
     { 
-      question: "Can I apply if I have an existing loan?", 
-      answer: "Yes, you can apply for additional loans. We consider your total EMI obligations and debt-to-income ratio during assessment to ensure comfortable repayment." 
+      question: "Joint personal loan application with spouse - higher loan amount", 
+      answer: "Apply for joint personal loan with spouse or family members to get higher loan eligibility. Combined income increases loan amount up to ₹40 lakhs. Co-applicant must be spouse, parents, or children. Both applicants' CIBIL scores are considered for approval and interest rate determination." 
     },
     { 
-      question: "What if my loan application is rejected?", 
-      answer: "We provide detailed feedback on rejection reasons. You can reapply after 3 months or consider our secured loan options with collateral." 
+      question: "What happens if I miss personal loan EMI payments?", 
+      answer: "Missing EMI payments attracts late payment charges (₹500-₹1000) and negatively impacts CIBIL score. After 90 days default, loan becomes NPA affecting future loan approvals. Contact lender immediately for EMI restructuring or moratorium options to avoid credit score damage." 
+    },
+    { 
+      question: "Business loan vs personal loan - which is better for entrepreneurs?", 
+      answer: "Business loans offer higher amounts (up to ₹75 lakhs), lower interest rates (12.50% onwards), longer tenure, and tax benefits. Personal loans provide faster approval but lower amounts (₹40 lakhs max). Choose business loan for expansion, working capital; personal loan for immediate funding needs." 
+    },
+    { 
+      question: "Home loan interest rates and eligibility in India", 
+      answer: "Home loan interest rates start from 8.40% p.a. from leading banks. Eligibility: Age 21-65 years, minimum income ₹35,000, CIBIL score 700+. Loan amount up to ₹10 crores with 90% LTV ratio. Tax benefits under Section 80C and 24B. Compare rates from SBI, HDFC, ICICI for best deals." 
     }
   ];
 
@@ -44,11 +52,18 @@ const FAQs = () => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
+  const handleTalkToExpert = () => {
+    document.getElementById('contact').scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  };
+
   return (
     <section id="faqs" className="faqs">
       <div className="container" data-aos="fade-up">
-        <h2>Frequently Asked Questions</h2>
-        <p className="faqs-subtitle">Get answers to common questions about our loan services</p>
+        <h2>Personal Loan FAQs - Instant Loan Questions Answered</h2>
+        <p className="faqs-subtitle">Get expert answers to common questions about personal loans, home loans, and business loans in India</p>
         <div className="faq-list">
           {faqs.map((faq, index) => (
             <div
@@ -72,7 +87,7 @@ const FAQs = () => {
         </div>
         <div className="faq-cta" data-aos="fade-up">
           <p>Still have questions? Our loan experts are here to help!</p>
-          <button className="contact-expert-btn">Talk to Expert</button>
+          <button className="contact-expert-btn" onClick={handleTalkToExpert}>Talk to Expert</button>
         </div>
       </div>
     </section>

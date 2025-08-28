@@ -23,25 +23,25 @@ const HomePage = () => {
         <section id="home" className="homepage">
             <div className="hero-section">
                 <div className="hero-content" data-aos="fade-up">
-                    <h1 className="hero-title">Your Trusted Financial Partner</h1>
-                    <h2 className="hero-subtitle">Secure Loans at Competitive Rates</h2>
+                    <h1 className="hero-title">Get Instant Personal Loans & Business Loans Online</h1>
+                    <h2 className="hero-subtitle">Compare Best Loan Rates from Top Banks & NBFCs</h2>
                     <p className="hero-description">
                         Experience hassle-free loan processing with India's leading digital lending platform. 
-                        Get instant approvals, competitive interest rates, and flexible repayment options 
-                        tailored to your financial needs.
+                        Get instant loan approvals, competitive interest rates, and flexible repayment options 
+                        tailored to your financial needs. Apply for personal loans, home loans, and business loans online.
                     </p>
                     <div className="hero-stats" data-aos="fade-up" data-aos-delay="200">
                         <div className="stat">
-                            <h3>₹50Lakhs+</h3>
+                            <h3>₹500+ Crores</h3>
                             <p>Loans Disbursed</p>
                         </div>
                         <div className="stat">
-                            <h3>5,000+</h3>
+                            <h3>50,000+</h3>
                             <p>Happy Customers</p>
                         </div>
                         <div className="stat">
                             <h3>24 Hours</h3>
-                            <p>Quick Approval</p>
+                            <p>Quick Loan Approval</p>
                         </div>
                     </div>
                     <div className="hero-buttons" data-aos="fade-up" data-aos-delay="400">
@@ -52,7 +52,7 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div className="hero-image" data-aos="fade-left" data-aos-delay="300">
-                    <img src={currencyimage} alt="Financial Solutions" className="home-banner"/>
+                    <img src={currencyimage} alt="instant personal loan online application india loanbazar" className="home-banner"/>
                 </div>
             </div>
             

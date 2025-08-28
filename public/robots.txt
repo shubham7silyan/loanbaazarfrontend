@@ -1,3 +1,30 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemap location
+Sitemap: https://loanbazar.com/sitemap.xml
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
+
+# Allow all search engines to index the site
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block admin area from indexing
+User-agent: *
+Disallow: /admin/
+
+# Allow important pages
+Allow: /#services
+Allow: /#calculator
+Allow: /#testimonials
+Allow: /#faqs
+Allow: /#contact

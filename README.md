@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# LoanBazar Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern React.js application for loan comparison and application services.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Loan Services:** Personal, Business, Home, and Doctor loans
+- **Interactive Calculator:** EMI calculation with dynamic inputs
+- **Contact System:** Integrated contact form with backend API
+- **Admin Panel:** Contact management dashboard
+- **Responsive Design:** Mobile-first approach with Bootstrap
+- **SEO Optimized:** Meta tags, structured data, and sitemap
+- **Performance Optimized:** Image optimization and lazy loading
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend:** React 18, Bootstrap 5, AOS animations
+- **Routing:** React Router DOM
+- **Styling:** CSS3, Bootstrap, Custom CSS
+- **Icons:** Font Awesome
+- **Build Tool:** Create React App
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/loanbazar-frontend.git
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Navigate to project directory
+cd loanbazar-frontend
 
-### `npm run build`
+# Install dependencies
+npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Start development server
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Environment Configuration
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The app automatically detects environment and uses appropriate API endpoints:
 
-### `npm run eject`
+- **Development:** `http://localhost:5000`
+- **Production:** `https://api.loanbaazar.in`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Build for Production
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+# Create production build
+npm run build
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# The build folder contains optimized files ready for deployment
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Project Structure
 
-## Learn More
+```
+src/
+├── component/          # React components
+│   ├── navv.jsx       # Navigation component
+│   ├── homepage.jsx   # Hero section
+│   ├── services.jsx   # Loan services
+│   ├── loancalculator.jsx
+│   ├── contactus.jsx  # Contact form
+│   └── ...
+├── config/
+│   └── api.js         # API configuration
+├── index.css          # Global styles
+└── App.js             # Main app component
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Deployment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project is configured for deployment on Hostinger with domain `loanbaazar.in`.
 
-### Code Splitting
+See `HOSTINGER_DEPLOYMENT.md` for detailed deployment instructions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## API Integration
 
-### Analyzing the Bundle Size
+The frontend connects to a Node.js backend API for:
+- Contact form submissions
+- Admin authentication
+- Data management
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Responsive Design
 
-### Making a Progressive Web App
+- **Mobile:** 320px - 768px
+- **Tablet:** 768px - 1024px  
+- **Desktop:** 1024px+
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Color Scheme
 
-### Advanced Configuration
+- **Primary:** #2a2a72 (Dark Blue)
+- **Accent:** #f4c542 (Yellow)
+- **Text:** #333333
+- **Background:** #ffffff
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## License
 
-### Deployment
+This project is licensed under the MIT License.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Author
 
-### `npm run build` fails to minify
+**Shubham Silyan**
+- Email: loanbazar76@gmail.com
+- Phone: +91 7678507025
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request

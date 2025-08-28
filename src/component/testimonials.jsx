@@ -1,33 +1,10 @@
 import React from "react";
 import '../index.css';
+import { paisabazaarData } from '../services/paisabazaarData';
 
 const Testimonials = () => {
-    const testimonials = [
-        {
-            id: 1,
-            name: "Rajesh Kumar",
-            designation: "Business Owner",
-            review: "LoanBazar helped me expand my textile business with a quick business loan. The process was transparent and hassle-free.",
-            rating: 5,
-            location: "Mumbai"
-        },
-        {
-            id: 2,
-            name: "Priya Sharma",
-            designation: "Software Engineer",
-            review: "Got my home loan approved in just 24 hours! Excellent customer service and competitive interest rates.",
-            rating: 5,
-            location: "Bangalore"
-        },
-        {
-            id: 3,
-            name: "Dr. Amit Patel",
-            designation: "Medical Practitioner",
-            review: "The professional loan helped me set up my clinic. Very understanding team and flexible repayment options.",
-            rating: 5,
-            location: "Pune"
-        }
-    ];
+    // Use real PaisaBazaar testimonials data
+    const testimonials = paisabazaarData.testimonials;
 
     const renderStars = (rating) => {
         return Array.from({ length: 5 }, (_, index) => (
@@ -41,7 +18,27 @@ const Testimonials = () => {
         <section id="testimonials" className="testimonials">
             <div className="container" data-aos="fade-up">
                 <h2>What Our Customers Say</h2>
-                <p className="testimonials-subtitle">Join thousands of satisfied customers who trust LoanBazar</p>
+                <p className="testimonials-subtitle">Join thousands of satisfied customers who trust LoanBazar for their financial needs</p>
+                
+                {/* Success Stats */}
+                <div className="success-stats" data-aos="fade-up">
+                    <div className="stat-item">
+                        <h3>₹500+ Crores</h3>
+                        <p>Loans Disbursed</p>
+                    </div>
+                    <div className="stat-item">
+                        <h3>50,000+</h3>
+                        <p>Happy Customers</p>
+                    </div>
+                    <div className="stat-item">
+                        <h3>4.8/5</h3>
+                        <p>Customer Rating</p>
+                    </div>
+                    <div className="stat-item">
+                        <h3>24 Hours</h3>
+                        <p>Average Approval</p>
+                    </div>
+                </div>
                 
                 <div className="testimonials-grid">
                     {testimonials.map((testimonial, index) => (
@@ -57,6 +54,10 @@ const Testimonials = () => {
                                 <div className="rating">
                                     {renderStars(testimonial.rating)}
                                 </div>
+                                <div className="loan-info">
+                                    <span className="loan-type">{testimonial.loanType}</span>
+                                    <span className="loan-amount">{testimonial.amount}</span>
+                                </div>
                             </div>
                             <div className="testimonial-author">
                                 <div className="author-info">
@@ -67,6 +68,22 @@ const Testimonials = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+
+                {/* Trust Indicators */}
+                <div className="trust-indicators" data-aos="fade-up">
+                    <h3>Trusted by Leading Banks & NBFCs</h3>
+                    <div className="partners-grid">
+                        {paisabazaarData.bankPartners.slice(0, 6).map((partner, index) => (
+                            <div key={index} className="partner-item" data-aos="zoom-in" data-aos-delay={index * 100}>
+                                <div className="partner-logo">
+                                    <span>{partner.name.split(' ').map(word => word[0]).join('')}</span>
+                                </div>
+                                <p>{partner.name}</p>
+                                <small>{partner.products.join(', ')}</small>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
