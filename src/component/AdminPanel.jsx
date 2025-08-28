@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './AdminPanel.css';
+import API_BASE_URL from '../config/api';
 
 const AdminPanel = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -18,7 +19,7 @@ const AdminPanel = () => {
       setIsLoggedIn(true);
       fetchContacts();
     }
-  }, []);
+  }, [fetchContacts]);
 
   // Format date and time
   const formatDateTime = (dateString) => {
@@ -38,11 +39,11 @@ const AdminPanel = () => {
   };
 
   // Fetch contacts
-  const fetchContacts = async () => {
+  const fetchContacts = useCallback(async () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch('http://localhost:5000/api/admin/contacts', {
+      const response = await fetch(`${API_BASE_URL}/api/admin/contacts`, {
         headers: { 'Authorization': `Bearer ${token}` },
       });
 
@@ -86,7 +87,7 @@ const AdminPanel = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [sortBy, filterBy]);
 
   // Handle login
   const handleLogin = async (e) => {
@@ -95,7 +96,7 @@ const AdminPanel = () => {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/admin/login', {
+      const response = await fetch(`${API_BASE_URL}/api/admin/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(loginData),
@@ -122,7 +123,7 @@ const AdminPanel = () => {
     try {
       console.log('Attempting to mark as read:', id);
       const token = localStorage.getItem('adminToken');
-      const response = await fetch(`http://localhost:5000/api/admin/contacts/${id}/read`, {
+      const response = await fetch(`${API_BASE_URL}/api/admin/contacts/${id}/read`, {
         method: 'PUT',
         headers: { 'Authorization': `Bearer ${token}` },
       });
@@ -149,7 +150,7 @@ const AdminPanel = () => {
     try {
       console.log('Attempting to mark as unread:', id);
       const token = localStorage.getItem('adminToken');
-      const response = await fetch(`http://localhost:5000/api/admin/contacts/${id}/unread`, {
+      const response = await fetch(`${API_BASE_URL}/api/admin/contacts/${id}/unread`, {
         method: 'PUT',
         headers: { 'Authorization': `Bearer ${token}` },
       });
@@ -177,7 +178,7 @@ const AdminPanel = () => {
 
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch(`http://localhost:5000/api/admin/contacts/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/admin/contacts/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` },
       });
@@ -226,7 +227,7 @@ const AdminPanel = () => {
     if (isLoggedIn) {
       fetchContacts();
     }
-  }, [sortBy, filterBy]);
+  }, [fetchContacts, isLoggedIn]);
 
   // Truncate message for list view
   const truncateMessage = (message, maxLength = 80) => {

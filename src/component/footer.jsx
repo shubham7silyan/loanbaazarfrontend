@@ -12,30 +12,30 @@ const Footer = () => {
             <h3> LoanBazar</h3>
             <p>India's most trusted digital lending platform. Making loans simple, fast, and transparent.</p>
             <div className="social-links">
-              <a href="#" aria-label="Facebook"> </a>
-              <a href="#" aria-label="Twitter"> </a>
-              <a href="#" aria-label="LinkedIn"> </a>
-              <a href="#" aria-label="Instagram"> </a>
+              <button type="button" aria-label="Facebook" className="social-link"> </button>
+              <button type="button" aria-label="Twitter" className="social-link"> </button>
+              <button type="button" aria-label="LinkedIn" className="social-link"> </button>
+              <button type="button" aria-label="Instagram" className="social-link"> </button>
             </div>
           </div>
           
           <div className="footer-section">
             <h4>Loan Products</h4>
             <ul>
-              <li><a href="#services">Personal Loan</a></li>
-              <li><a href="#services">Home Loan</a></li>
-              <li><a href="#services">Business Loan</a></li>
-              <li><a href="#services">Professional Loan</a></li>
+              <li><a href="javascript:void(0)">Personal Loan</a></li>
+              <li><a href="javascript:void(0)">Home Loan</a></li>
+              <li><a href="javascript:void(0)">Business Loan</a></li>
+              <li><a href="javascript:void(0)">Professional Loan</a></li>
             </ul>
           </div>
           
           <div className="footer-section">
             <h4>Quick Links</h4>
             <ul>
-              <li><a href="#calculator">EMI Calculator</a></li>
-              <li><a href="#eligibility">Eligibility Checker</a></li>
-              <li><a href="#faqs">FAQs</a></li>
-              <li><a href="#contact">Contact Us</a></li>
+              <li><a href="javascript:void(0)">EMI Calculator</a></li>
+              <li><a href="javascript:void(0)">Eligibility Checker</a></li>
+              <li><a href="javascript:void(0)">FAQs</a></li>
+              <li><a href="javascript:void(0)">Contact Us</a></li>
             </ul>
           </div>
           

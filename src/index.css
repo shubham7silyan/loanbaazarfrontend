@@ -254,6 +254,11 @@ a {
   display: flex;
   align-items: center;
   padding: 80px 20px;
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+  overflow: hidden;
+  background-attachment: local;
 }
 
 .hero-section {
@@ -263,6 +268,8 @@ a {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 10;
 }
 
 .hero-content {
@@ -356,6 +363,7 @@ a {
 
 .hero-image {
   position: relative;
+  z-index: 15;
 }
 
 .home-banner {

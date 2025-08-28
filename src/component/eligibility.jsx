@@ -94,6 +94,9 @@ const EligibilityChecker = () => {
                 case 'Loan Against Property':
                     multiplier = userCreditScore >= 750 ? 40 : 30;
                     break;
+                default:
+                    multiplier = 10;
+                    break;
             }
 
             maxLoanAmount = Math.min(monthlyIncome * multiplier, 

@@ -1,8 +1,7 @@
 // Services.js
 import React, { useState } from "react";
-import { Link } from "react-scroll";
 import "../index.css"
-import { paisabazaarData, getLowestRate } from '../services/paisabazaarData';
+import { paisabazaarData } from '../services/paisabazaarData';
 import personalLoanImg from './images/Ploan.jpg'
 import businessLoanImg from './images/Bloan.jpg'
 import housingLoanImg from './images/Hloan.jpg'
