@@ -38,14 +38,28 @@ const ContactUs = () => {
         setIsSubmitting(true);
         
         try {
+            console.log('Submitting to:', `${API_BASE_URL}/api/contact`);
+            console.log('Form data:', formData);
+            
             // Send to backend API (with email functionality)
             const response = await fetch(`${API_BASE_URL}/api/contact`, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: { 
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
                 body: JSON.stringify(formData),
+                mode: 'cors',
+                credentials: 'include'
             });
 
+            console.log('Response status:', response.status);
+            console.log('Response headers:', response.headers);
+
             if (response.ok) {
+                const result = await response.json();
+                console.log('Success response:', result);
+                
                 // Success message
                 alert(`✅ Inquiry submitted successfully!
                 
@@ -62,17 +76,33 @@ Thank you for choosing LoanBazar!`);
                     message: "",
                 });
             } else {
-                throw new Error('Failed to submit form');
+                const errorData = await response.text();
+                console.error('Server error response:', errorData);
+                throw new Error(`Server responded with status: ${response.status}`);
             }
             
         } catch (error) {
-            alert(`⚠️ There was an error submitting your inquiry. 
+            console.error('Contact form submission error:', error);
+            
+            let errorMessage = `⚠️ There was an error submitting your inquiry.`;
+            
+            if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
+                errorMessage += `\n\n🌐 Network Error: Unable to connect to our servers.`;
+            } else if (error.message.includes('CORS')) {
+                errorMessage += `\n\n🔒 CORS Error: Cross-origin request blocked.`;
+            } else {
+                errorMessage += `\n\n📋 Error Details: ${error.message}`;
+            }
+            
+            errorMessage += `
             
 Please try again or contact us directly:
 📧 Email: loanbazar76@gmail.com
 📱 Phone: +91 7678507025
 
-We apologize for the inconvenience!`);
+We apologize for the inconvenience!`;
+            
+            alert(errorMessage);
         } finally {
             setIsSubmitting(false);
         }
