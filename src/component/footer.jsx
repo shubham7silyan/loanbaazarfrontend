@@ -15,10 +15,10 @@ const Footer = () => {
   // Handle social media links
   const handleSocialClick = (platform) => {
     const socialLinks = {
-      facebook: 'https://facebook.com/loanbazar',
-      twitter: 'https://twitter.com/loanbazar',
-      linkedin: 'https://linkedin.com/company/loanbazar',
-      instagram: 'https://instagram.com/loanbazar'
+      facebook: '',
+      twitter: '',
+      linkedin: '',
+      instagram: ''
     };
     
     if (socialLinks[platform]) {
