@@ -13,31 +13,6 @@ const AdminPanel = () => {
   const [filterBy, setFilterBy] = useState('all');
   const [expandedContact, setExpandedContact] = useState(null);
 
-  useEffect(() => {
-    const token = localStorage.getItem('adminToken');
-    if (token) {
-      setIsLoggedIn(true);
-      fetchContacts();
-    }
-  }, [fetchContacts, sortBy, filterBy]);
-
-  // Format date and time
-  const formatDateTime = (dateString) => {
-    const date = new Date(dateString);
-    const options = {
-      timeZone: 'Asia/Kolkata',
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: true
-    };
-    const formatted = date.toLocaleString('en-IN', options);
-    const [datePart, timePart] = formatted.split(', ');
-    return { date: datePart, time: timePart };
-  };
-
   // Fetch contacts
   const fetchContacts = useCallback(async () => {
     setLoading(true);
@@ -88,6 +63,31 @@ const AdminPanel = () => {
       setLoading(false);
     }
   }, [sortBy, filterBy]);
+
+  useEffect(() => {
+    const token = localStorage.getItem('adminToken');
+    if (token) {
+      setIsLoggedIn(true);
+      fetchContacts();
+    }
+  }, [fetchContacts, sortBy, filterBy]);
+
+  // Format date and time
+  const formatDateTime = (dateString) => {
+    const date = new Date(dateString);
+    const options = {
+      timeZone: 'Asia/Kolkata',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    };
+    const formatted = date.toLocaleString('en-IN', options);
+    const [datePart, timePart] = formatted.split(', ');
+    return { date: datePart, time: timePart };
+  };
 
   // Handle login
   const handleLogin = async (e) => {
