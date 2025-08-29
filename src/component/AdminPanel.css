@@ -1156,26 +1156,58 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .admin-panel {
-    padding: 1rem;
+    padding: 0.5rem;
+    background: #f8f9fa;
   }
   
   .admin-header {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
-    padding: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .admin-header h1 {
+    font-size: 1.4rem;
+  }
+  
+  .logout-btn {
+    padding: 0.75rem 2rem;
+    font-size: 0.9rem;
+    width: auto;
+    min-width: 120px;
   }
   
   .stats-dashboard {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .stat-card {
+    padding: 1.25rem;
+    text-align: center;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .stat-label {
+    font-size: 0.85rem;
   }
   
   .contacts-header {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
-    padding: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .contacts-header h2 {
+    font-size: 1.2rem;
+    margin: 0;
   }
   
   .controls {
@@ -1185,451 +1217,322 @@
     width: 100%;
   }
   
+  .filter-select, .sort-select, .refresh-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 12px;
+    min-height: 48px;
+    touch-action: manipulation;
+  }
+  
+  .refresh-btn {
+    justify-content: center;
+    font-weight: 600;
+  }
+  
   .view-toggle {
     justify-content: center;
+    width: 100%;
+  }
+  
+  .view-toggle button {
+    flex: 1;
+    padding: 1rem;
+    font-size: 0.95rem;
+    min-height: 48px;
   }
   
   .contacts-container.grid {
     grid-template-columns: 1fr;
-    padding: 1rem;
+    padding: 0.75rem;
+    gap: 1rem;
+  }
+  
+  .contacts-container.list {
+    padding: 0;
   }
   
   .contacts-container.list .contact-item {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    margin: 0;
   }
   
-  .contacts-container.list .contact-details {
+  .contact-list-header {
+    padding: 1rem;
     flex-direction: column;
     align-items: stretch;
-    gap: 1rem;
+    gap: 0.75rem;
   }
   
-  .contact-header {
-    flex-direction: column;
-    gap: 1rem;
+  .contact-list-info {
+    order: 1;
+  }
+  
+  .contact-list-meta {
+    order: 2;
     align-items: flex-start;
+    min-width: auto;
+    flex-direction: row;
+    justify-content: space-between;
   }
   
-  .contact-meta {
-    grid-template-columns: 1fr !important;
+  .expand-icon {
+    order: 3;
+    align-self: center;
+    width: 32px;
+    height: 32px;
+    background: rgba(42, 42, 114, 0.1);
+    border-radius: 50%;
+    margin-top: 0.5rem;
+  }
+  
+  .contact-name-status {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .contact-name-status h3 {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+  
+  .contact-phone {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .contact-preview {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+  
+  .message-preview {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+  
+  .contact-date, .contact-time {
+    font-size: 0.8rem;
+  }
+  
+  .contact-expanded-details {
+    padding: 0;
+  }
+  
+  .contact-full-info {
+    padding: 1rem;
+  }
+  
+  .contact-meta-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .meta-item {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .message-full {
+    padding: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .contact-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+  
+  .contact-actions button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    min-height: 48px;
+    justify-content: center;
+    border-radius: 12px;
+    touch-action: manipulation;
+  }
+  
+  .unread-dot {
+    width: 12px;
+    height: 12px;
   }
   
   .login-background {
     padding: 1rem;
+    max-width: 100%;
   }
   
   .login-container {
     padding: 2rem 1.5rem;
+    margin: 0;
+    border-radius: 16px;
+  }
+  
+  .admin-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+  
+  .login-header h2 {
+    font-size: 1.6rem;
+  }
+  
+  .form-input {
+    padding: 1rem 1rem 1rem 3rem;
+    font-size: 1rem;
+    min-height: 48px;
+  }
+  
+  .login-btn {
+    padding: 1rem;
+    font-size: 1rem;
+    min-height: 48px;
+  }
+  
+  .back-to-main-btn {
+    padding: 1rem;
+    font-size: 0.95rem;
+    min-height: 48px;
   }
 }
 
-/* Contact Container Layouts */
-.contacts-container.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
-}
-
-.contacts-container.list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  padding: 1rem;
-}
-
-/* Contact Item Styles */
-.contact-item {
-  border: 1px solid #e8ecf0;
-  border-radius: 16px;
-  padding: 1.5rem;
-  background: #fafbfc;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.contact-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: #e8ecf0;
-  transition: all 0.3s ease;
-}
-
-.contact-item.unread {
-  background: linear-gradient(135deg, #fff5f5, #fef7f7);
-  border-color: #fecaca;
-}
-
-.contact-item.unread::before {
-  background: linear-gradient(180deg, #dc3545, #ff6b6b);
-  width: 6px;
-}
-
-.contact-item.read::before {
-  background: linear-gradient(180deg, #28a745, #20c997);
-}
-
-.contact-item:hover {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  transform: translateY(-3px);
-  border-color: #2a2a72;
-}
-
-/* Gmail-style List View */
-.contacts-container.list .contact-item {
-  border-radius: 0;
-  border: none;
-  border-bottom: 1px solid #e8ecf0;
-  padding: 0;
-  background: white;
-  margin: 0;
-  transform: none;
-}
-
-.contacts-container.list .contact-item:hover {
-  background: #f8f9fa;
-  transform: none;
-  box-shadow: none;
-}
-
-.contacts-container.list .contact-item.unread {
-  background: #fff8f8;
-  border-left: 4px solid #dc3545;
-}
-
-.contacts-container.list .contact-item.unread:hover {
-  background: #fff0f0;
-}
-
-.contacts-container.list .contact-item::before {
-  display: none;
-}
-
-/* List Header - Gmail Style */
-.contact-list-header {
-  display: flex;
-  align-items: center;
-  padding: 1rem 1.5rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border-left: 4px solid transparent;
-}
-
-.contact-list-header:hover {
-  background: rgba(42, 42, 114, 0.05);
-}
-
-.contact-list-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.contact-name-status {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.contact-name-status h3 {
-  margin: 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #2a2a72;
-}
-
-.contact-name-status h3.unread-name {
-  font-weight: 700;
-  color: #1a1a1a;
-}
-
-.contact-phone {
-  color: #666;
-  font-size: 0.9rem;
-  font-weight: 400;
-}
-
-.contact-preview {
-  margin-left: 1.5rem;
-}
-
-.message-preview {
-  color: #666;
-  font-size: 0.95rem;
-  line-height: 1.4;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.contact-list-meta {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.25rem;
-  min-width: 120px;
-  text-align: right;
-}
-
-.contact-date {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #2a2a72;
-}
-
-.contact-time {
-  font-size: 0.8rem;
-  color: #666;
-}
-
-.expand-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  color: #666;
-  transition: transform 0.2s ease;
-}
-
-.contact-item.expanded .expand-icon {
-  transform: rotate(180deg);
-}
-
-/* Expanded Details */
-.contact-expanded-details {
-  border-top: 1px solid #e8ecf0;
-  background: #fafbfc;
-  animation: expandDown 0.3s ease-out;
-}
-
-@keyframes expandDown {
-  from {
-    opacity: 0;
-    max-height: 0;
+/* Extra small devices (phones in portrait) */
+@media (max-width: 480px) {
+  .admin-panel {
+    padding: 0.25rem;
   }
-  to {
-    opacity: 1;
-    max-height: 500px;
+  
+  .admin-header {
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .admin-header h1 {
+    font-size: 1.2rem;
+    line-height: 1.3;
+  }
+  
+  .logout-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .stat-card {
+    padding: 1rem;
+  }
+  
+  .stat-number {
+    font-size: 1.75rem;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+  }
+  
+  .contacts-header {
+    padding: 0.75rem;
+  }
+  
+  .contacts-header h2 {
+    font-size: 1.1rem;
+  }
+  
+  .filter-select, .sort-select, .refresh-btn {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+  }
+  
+  .contact-list-header {
+    padding: 0.875rem;
+  }
+  
+  .contact-name-status h3 {
+    font-size: 1rem;
+  }
+  
+  .contact-phone {
+    font-size: 0.85rem;
+  }
+  
+  .message-preview {
+    font-size: 0.85rem;
+  }
+  
+  .contact-date, .contact-time {
+    font-size: 0.75rem;
+  }
+  
+  .contact-full-info {
+    padding: 0.875rem;
+  }
+  
+  .meta-item {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
+  
+  .message-full {
+    padding: 0.875rem;
+    font-size: 0.85rem;
+  }
+  
+  .contact-actions button {
+    padding: 0.875rem;
+    font-size: 0.9rem;
+  }
+  
+  .login-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .admin-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .login-header h2 {
+    font-size: 1.4rem;
+  }
+  
+  .login-header p {
+    font-size: 0.9rem;
   }
 }
 
-.contact-full-info {
-  padding: 1.5rem;
-}
-
-.contact-meta-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.meta-item {
-  padding: 0.75rem;
-  background: white;
-  border-radius: 8px;
-  border: 1px solid #e8ecf0;
-  font-size: 0.9rem;
-}
-
-.meta-item strong {
-  color: #2a2a72;
-  font-weight: 600;
-}
-
-.message-section {
-  margin-bottom: 1.5rem;
-}
-
-.message-section strong {
-  color: #2a2a72;
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.message-full {
-  background: white;
-  padding: 1.25rem;
-  border-radius: 12px;
-  border-left: 4px solid #2a2a72;
-  margin-top: 0.75rem;
-  font-style: italic;
-  color: #4a5568;
-  line-height: 1.6;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.contact-actions {
-  display: flex;
-  gap: 0.75rem;
-  justify-content: flex-end;
-}
-
-.contact-actions button {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-.read-btn {
-  background: linear-gradient(135deg, #28a745, #20c997);
-  color: white;
-  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
-}
-
-.read-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
-}
-
-.unread-btn {
-  background: linear-gradient(135deg, #6c757d, #495057);
-  color: white;
-  box-shadow: 0 2px 8px rgba(108, 117, 125, 0.3);
-}
-
-.unread-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(108, 117, 125, 0.4);
-}
-
-.delete-btn {
-  background: linear-gradient(135deg, #dc3545, #c82333);
-  color: white;
-  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
-}
-
-.delete-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
-}
-
-/* Grid View Specific Styles */
-.contacts-container.grid .contact-item:hover {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  transform: translateY(-3px);
-  border-color: #2a2a72;
-}
-
-/* Contact Status Styling for Grid */
-.contact-status {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.contact-status p {
-  margin: 0;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-weight: 600;
-  padding: 0.25rem 0.5rem;
-  border-radius: 12px;
-  background: #f8f9fa;
-  color: #666;
-}
-
-.contact-item.unread .contact-status p {
-  background: #fee;
-  color: #dc3545;
-}
-
-.contact-item.read .contact-status p {
-  background: #f0f9ff;
-  color: #28a745;
-}
-
-/* Status Indicator */
-.status-indicator {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.status-text {
-  font-size: 0.8rem;
-  color: #666;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-weight: 600;
-  padding: 0.25rem 0.5rem;
-  border-radius: 12px;
-  background: #f8f9fa;
-}
-
-.contact-item.unread .status-text {
-  background: #fee;
-  color: #dc3545;
-}
-
-.contact-item.read .status-text {
-  background: #f0f9ff;
-  color: #28a745;
-}
-
-/* Unread Dot */
-.unread-dot {
-  width: 10px;
-  height: 10px;
-  background: #dc3545;
-  border-radius: 50%;
-  animation: pulse-dot 2s infinite;
-  box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
-  flex-shrink: 0;
-}
-
-@keyframes pulse-dot {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .contact-list-header {
+    padding: 1.25rem 1rem;
   }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 10px rgba(220, 53, 69, 0);
+  
+  .contact-list-header:active {
+    background: rgba(42, 42, 114, 0.1);
   }
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+  
+  .contact-actions button:active {
+    transform: scale(0.98);
   }
-}
-
-.contacts-container.list .message {
-  margin: 0;
-  padding: 1rem;
-  max-height: 60px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
-}
-
-.message-preview {
-  color: #666;
-  font-size: 0.95rem;
-  line-height: 1.4;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  
+  .logout-btn:active,
+  .refresh-btn:active,
+  .filter-select:active,
+  .sort-select:active {
+    transform: scale(0.98);
+  }
+  
+  .expand-icon:active {
+    background: rgba(42, 42, 114, 0.2);
+  }
 }
