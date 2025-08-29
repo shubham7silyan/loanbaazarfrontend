@@ -4,6 +4,28 @@ import { Link } from "react-router-dom";
 import '../index.css'
 
 const Footer = () => {
+  // Handle navigation for internal sections
+  const handleNavigation = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Handle social media links
+  const handleSocialClick = (platform) => {
+    const socialLinks = {
+      facebook: 'https://facebook.com/loanbazar',
+      twitter: 'https://twitter.com/loanbazar',
+      linkedin: 'https://linkedin.com/company/loanbazar',
+      instagram: 'https://instagram.com/loanbazar'
+    };
+    
+    if (socialLinks[platform]) {
+      window.open(socialLinks[platform], '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
     <footer className="footer" data-aos="fade-up">
       <div className="container">
@@ -12,30 +34,50 @@ const Footer = () => {
             <h3> LoanBazar</h3>
             <p>India's most trusted digital lending platform. Making loans simple, fast, and transparent.</p>
             <div className="social-links">
-              <button type="button" aria-label="Facebook" className="social-link"> </button>
-              <button type="button" aria-label="Twitter" className="social-link"> </button>
-              <button type="button" aria-label="LinkedIn" className="social-link"> </button>
-              <button type="button" aria-label="Instagram" className="social-link"> </button>
+              <button 
+                type="button" 
+                aria-label="Facebook" 
+                className="social-link"
+                onClick={() => handleSocialClick('facebook')}
+              > </button>
+              <button 
+                type="button" 
+                aria-label="Twitter" 
+                className="social-link"
+                onClick={() => handleSocialClick('twitter')}
+              > </button>
+              <button 
+                type="button" 
+                aria-label="LinkedIn" 
+                className="social-link"
+                onClick={() => handleSocialClick('linkedin')}
+              > </button>
+              <button 
+                type="button" 
+                aria-label="Instagram" 
+                className="social-link"
+                onClick={() => handleSocialClick('instagram')}
+              > </button>
             </div>
           </div>
           
           <div className="footer-section">
             <h4>Loan Products</h4>
             <ul>
-              <li><button type="button" className="footer-link-btn">Personal Loan</button></li>
-              <li><button type="button" className="footer-link-btn">Home Loan</button></li>
-              <li><button type="button" className="footer-link-btn">Business Loan</button></li>
-              <li><button type="button" className="footer-link-btn">Professional Loan</button></li>
+              <li><button type="button" className="footer-link-btn" onClick={() => handleNavigation('services')}>Personal Loan</button></li>
+              <li><button type="button" className="footer-link-btn" onClick={() => handleNavigation('services')}>Home Loan</button></li>
+              <li><button type="button" className="footer-link-btn" onClick={() => handleNavigation('services')}>Business Loan</button></li>
+              <li><button type="button" className="footer-link-btn" onClick={() => handleNavigation('services')}>Professional Loan</button></li>
             </ul>
           </div>
           
           <div className="footer-section">
             <h4>Quick Links</h4>
             <ul>
-              <li><button type="button" className="footer-link-btn">EMI Calculator</button></li>
-              <li><button type="button" className="footer-link-btn">Eligibility Checker</button></li>
-              <li><button type="button" className="footer-link-btn">FAQs</button></li>
-              <li><button type="button" className="footer-link-btn">Contact Us</button></li>
+              <li><button type="button" className="footer-link-btn" onClick={() => handleNavigation('loan-calculator')}>EMI Calculator</button></li>
+              <li><button type="button" className="footer-link-btn" onClick={() => handleNavigation('eligibility')}>Eligibility Checker</button></li>
+              <li><button type="button" className="footer-link-btn" onClick={() => handleNavigation('faqs')}>FAQs</button></li>
+              <li><button type="button" className="footer-link-btn" onClick={() => handleNavigation('contact')}>Contact Us</button></li>
             </ul>
           </div>
           
@@ -61,9 +103,9 @@ const Footer = () => {
             </div>
           </div>
           <div className="footer-certifications">
-            <span> RBI Approved Partners</span>
-            <span> SSL Secured</span>
-            <span> ISO 27001 Certified</span>
+            <span>RBI Approved Partners</span>
+            <span>SSL Secured</span>
+            <span>ISO 27001 Certified</span>
           </div>
         </div>
       </div>
