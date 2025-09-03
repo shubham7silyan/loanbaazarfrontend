@@ -1,74 +1,233 @@
-import React, { useState } from "react";
-import '../index.css'
-import { Link } from "react-scroll";
-import { Link as RouterLink } from "react-router-dom";
+import React, { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-scroll';
+import { useNavigate } from 'react-router-dom';
+import './navbar-fix.css';
 
 function Navb() {
+    const [activeItem, setActiveItem] = useState(0);
+    const [scrolled, setScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [hoverIndex, setHoverIndex] = useState(-1);
+    const navigate = useNavigate();
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
+    const navItems = [
+        { name: 'Home', to: 'home' },
+        { name: 'Services', to: 'services' },
+        { name: 'Calculator', to: 'calculator' },
+        { name: 'Reviews', to: 'reviews' },
+        { name: 'FAQs', to: 'faqs' },
+        { name: 'Apply Now', to: 'contact' }
+    ];
 
-    const closeMenu = () => {
-        setIsMenuOpen(false);
-    };
+    useEffect(() => {
+        const handleScroll = () => {
+            const isScrolled = window.scrollY > 50;
+            setScrolled(isScrolled);
+        };
 
-    const handleKeyDown = (event) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            toggleMenu();
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const handleMouseEnter = useCallback((index) => {
+        setHoverIndex(index);
+        
+        // Update liquid blob position
+        const liquidBlob = document.querySelector('.liquid-blob');
+        const navItem = document.querySelector(`[data-nav-index="${index}"]`);
+        
+        if (liquidBlob && navItem) {
+            const rect = navItem.getBoundingClientRect();
+            const containerRect = document.querySelector('.liquid-nav-container').getBoundingClientRect();
+            
+            const left = rect.left - containerRect.left;
+            const width = rect.width;
+            
+            liquidBlob.style.transform = `translateX(${left}px)`;
+            liquidBlob.style.width = `${width}px`;
         }
+    }, []);
+
+    const handleMouseLeave = useCallback(() => {
+        setHoverIndex(-1);
+        
+        // Return blob to active item
+        const liquidBlob = document.querySelector('.liquid-blob');
+        const activeNavItem = document.querySelector(`[data-nav-index="${activeItem}"]`);
+        
+        if (liquidBlob && activeNavItem) {
+            const rect = activeNavItem.getBoundingClientRect();
+            const containerRect = document.querySelector('.liquid-nav-container').getBoundingClientRect();
+            
+            const left = rect.left - containerRect.left;
+            const width = rect.width;
+            
+            liquidBlob.style.transform = `translateX(${left}px)`;
+            liquidBlob.style.width = `${width}px`;
+        }
+    }, [activeItem]);
+
+    const handleClick = useCallback((index) => {
+        setActiveItem(index);
+        setHoverIndex(-1);
+        
+        // Animate blob to clicked item
+        setTimeout(() => {
+            const liquidBlob = document.querySelector('.liquid-blob');
+            const navItem = document.querySelector(`[data-nav-index="${index}"]`);
+            
+            if (liquidBlob && navItem) {
+                const rect = navItem.getBoundingClientRect();
+                const containerRect = document.querySelector('.liquid-nav-container').getBoundingClientRect();
+                
+                const left = rect.left - containerRect.left;
+                const width = rect.width;
+                
+                liquidBlob.style.transform = `translateX(${left}px)`;
+                liquidBlob.style.width = `${width}px`;
+            }
+        }, 50);
+    }, []);
+
+    const toggleMobileMenu = useCallback(() => {
+        setIsMenuOpen(!isMenuOpen);
+    }, [isMenuOpen]);
+
+    const closeMobileMenu = useCallback(() => {
+        setIsMenuOpen(false);
+    }, []);
+
+    // Handle admin portal click
+    const handleAdminClick = () => {
+        navigate('/admin');
     };
 
     return (
-        <header className="navbar" data-aos="fade-down">
-            <div className="navbar-logo">
-                <h1>
-                    <span className="logo-icon">🏦</span>
-                    <span className="logo-text">Loan</span>
-                    <span className="logo-subtitle">Bazar</span>
-                </h1>
-            </div>
-            <nav className="navbar-links" role="navigation" aria-label="Main navigation">
-                <ul className={isMenuOpen ? 'active' : ''}>
-                    <li>
-                        <Link to="home" smooth={true} duration={500} onClick={closeMenu} aria-label="Go to homepage">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="services" smooth={true} duration={500} onClick={closeMenu} aria-label="View loan services">Loan Services</Link>
-                    </li>
-                    <li>
-                        <Link to="calculator" smooth={true} duration={500} onClick={closeMenu} aria-label="Calculate EMI">EMI Calculator</Link>
-                    </li>
-                    <li>
-                        <Link to="testimonials" smooth={true} duration={500} onClick={closeMenu} aria-label="Customer reviews">Reviews</Link>
-                    </li>
-                    <li>
-                        <Link to="faqs" smooth={true} duration={500} onClick={closeMenu} aria-label="Frequently asked questions">FAQs</Link>
-                    </li>
-                    <li>
-                        <Link to="contact" smooth={true} duration={500} onClick={closeMenu} aria-label="Contact us">Apply Now</Link>
-                    </li>
-                    <li className="admin-link">
-                        <RouterLink to="/admin" onClick={closeMenu} aria-label="Admin panel">Admin</RouterLink>
-                    </li>
-                </ul>
-                <div 
-                    className="hamburger" 
-                    onClick={toggleMenu} 
-                    onKeyDown={handleKeyDown}
-                    aria-label="Toggle menu" 
-                    role="button" 
-                    tabIndex="0"
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
+        <>
+            <div className={`liquid-navbar ${scrolled ? 'scrolled' : ''}`}>
+                {/* Logo Section */}
+                <div className="liquid-logo-section">
+                    <div className="logo-container">
+                        <div className="logo-icon">💎</div>
+                        <div className="logo-text">
+                            <span className="brand-main">LoanBazar</span>
+                            <span className="brand-tagline">Your Financial Partner</span>
+                        </div>
+                    </div>
                 </div>
-            </nav>
-        </header>
+
+                {/* Liquid Navigation Container */}
+                <div className="liquid-nav-container" onMouseLeave={handleMouseLeave}>
+                    {/* Animated Liquid Blob Background */}
+                    <div className="liquid-blob"></div>
+                    
+                    {/* Morphing Background SVG */}
+                    <svg className="liquid-morph-bg" viewBox="0 0 800 60" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="liquidGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stopColor="rgba(244, 197, 66, 0.8)" />
+                                <stop offset="50%" stopColor="rgba(244, 197, 66, 0.6)" />
+                                <stop offset="100%" stopColor="rgba(244, 197, 66, 0.8)" />
+                            </linearGradient>
+                            <filter id="liquidGlow">
+                                <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        
+                        <path 
+                            className="liquid-path"
+                            d="M0,30 Q200,10 400,30 T800,30 L800,60 L0,60 Z"
+                            fill="url(#liquidGradient)"
+                            filter="url(#liquidGlow)"
+                        />
+                    </svg>
+
+                    {/* Navigation Items */}
+                    <ul className="liquid-nav-menu">
+                        {navItems.map((item, index) => (
+                            <li 
+                                key={`nav-${index}`}
+                                data-nav-index={index}
+                                className={`liquid-nav-item ${activeItem === index ? 'active' : ''} ${hoverIndex === index ? 'hovered' : ''}`}
+                                onMouseEnter={() => handleMouseEnter(index)}
+                                onClick={() => handleClick(index)}
+                            >
+                                <Link to={item.to} smooth={true} duration={800} offset={-80}>
+                                    <span className="nav-text">{item.name}</span>
+                                    <div className="liquid-ripple"></div>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                {/* Admin Portal Button */}
+                <button onClick={handleAdminClick} className="liquid-admin-btn">
+                    <span className="admin-text">Admin Portal</span>
+                    <div className="liquid-admin-bg"></div>
+                </button>
+
+                {/* Mobile Toggle */}
+                <button 
+                    type="button"
+                    className={`liquid-mobile-toggle ${isMenuOpen ? 'active' : ''}`}
+                    onClick={toggleMobileMenu}
+                >
+                    <div className="liquid-hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+            </div>
+
+            {/* Mobile Menu */}
+            <div className={`liquid-mobile-menu ${isMenuOpen ? 'active' : ''}`}>
+                <div className="liquid-mobile-overlay" onClick={closeMobileMenu}>
+                    <svg className="liquid-mobile-bg" viewBox="0 0 400 800" preserveAspectRatio="none">
+                        <path 
+                            className="mobile-liquid-path"
+                            d="M0,0 Q50,100 0,200 T0,400 T0,600 T0,800 L400,800 L400,0 Z"
+                            fill="url(#liquidGradient)"
+                        />
+                    </svg>
+                </div>
+                
+                <div className="liquid-mobile-panel">
+                    <div className="mobile-logo">
+                        <div className="mobile-logo-icon">💎</div>
+                        <span className="mobile-brand-text">LoanBazar</span>
+                    </div>
+                    
+                    <div className="liquid-mobile-nav">
+                        {navItems.map((item, index) => (
+                            <Link 
+                                key={`mobile-${index}`}
+                                to={item.to} 
+                                smooth={true} 
+                                duration={800}
+                                offset={-80}
+                                className="liquid-mobile-link"
+                                onClick={closeMobileMenu}
+                            >
+                                <span className="mobile-nav-text">{item.name}</span>
+                                <div className="mobile-liquid-ripple"></div>
+                            </Link>
+                        ))}
+                        
+                        <button onClick={() => { handleAdminClick(); closeMobileMenu(); }} className="liquid-mobile-link admin-link">
+                            <span className="mobile-nav-text">Admin Portal</span>
+                            <div className="mobile-liquid-ripple"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </>
     );
-};
+}
 
 export default Navb;
